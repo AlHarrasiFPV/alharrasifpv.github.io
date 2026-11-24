@@ -141,6 +141,24 @@ section{padding:64px 0 0}
 .btn:hover{filter:brightness(1.06)}
 .btn svg{width:20px;height:20px}
 .note{color:var(--muted);font-size:13.5px;margin:10px 0 0;line-height:1.6}
+.link.hook.tune{border-color:var(--rec);background:linear-gradient(160deg,#22110F,#11151A 70%)}
+.link.hook.tune .t{color:#FF8F86}
+.link.hook.tune .ic{color:var(--rec)}
+.tune-grid{display:grid;gap:14px}
+.price{display:grid;grid-template-columns:1fr;gap:10px;margin-top:6px}
+.pcard{padding:15px 17px;border-radius:18px;background:#0E1216;border:1px solid var(--line);display:grid;grid-template-columns:1fr auto;gap:4px 12px;align-items:baseline;transition:border-color .2s,background .2s}
+.pcard h3{font-size:18px;font-weight:800}
+.pcard .amt{font-weight:800;color:var(--gold);font-size:19px;white-space:nowrap}
+.pcard p{grid-column:1/-1;margin:0;color:#C9C3B6;font-size:14.5px;line-height:1.65}
+.pcard.on{border-color:var(--gold);background:linear-gradient(160deg,#1E1A10,#0E1216 70%)}
+.pcard.on h3::after{content:" ← المناسب لك";color:var(--gold);font-size:13px;font-weight:700}
+.offer{display:inline-flex;gap:8px;align-items:center;margin-top:14px;padding:8px 14px;border-radius:999px;background:rgba(255,65,54,.12);border:1px solid rgba(255,65,54,.45);color:#FFB3AD;font-weight:700;font-size:14px;line-height:1.4}
+.offer i{width:8px;height:8px;border-radius:50%;background:var(--rec);flex:none;box-shadow:0 0 0 0 rgba(255,65,54,.6);animation:pulse 1.6s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 8px rgba(255,65,54,0)}100%{box-shadow:0 0 0 0 rgba(255,65,54,0)}}
+.result .amt{display:block;font-size:26px;font-weight:800;color:var(--sand);margin-top:6px}
+.result p.d{margin:6px 0 0;color:#D6D0C3;font-size:15px;line-height:1.7}
+@media (min-width:720px){.tune-grid{grid-template-columns:1.05fr .95fr;align-items:start}}
+
 .field{display:grid;gap:6px;margin-bottom:12px}
 .field label{font-weight:700;font-size:15px}
 .field input,.field textarea{width:100%;font:inherit;font-size:16px;color:var(--sand);background:#0B0E11;border:1px solid #2f3740;border-radius:12px;padding:11px 13px}
@@ -267,6 +285,11 @@ h3.sub{font-size:19px;font-weight:800;margin:30px 0 14px}
           <span><span class="t">أي درون FPV يناسبك؟</span><br><span class="s">جاوب ٣ أسئلة وتطلع لك خطتك</span></span>
           <span class="ar">←</span>
         </a>
+        <a class="link hook tune" href="#tune">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 12h3.5l2.2-5.5 3.6 11 3.2-8.5 1.8 3h4.7"/></svg></span>
+          <span><span class="t">درونك يهتز؟ افحصه في ٣٠ ثانية</span><br><span class="s">وتعرف الضبط اللي يحتاجه وسعره</span></span>
+          <span class="ar">←</span>
+        </a>
         <a class="link primary" id="waMain" href="https://wa.me/96893222413" target="_blank" rel="noopener">
           <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"/><path d="M8.5 10.5h7M8.5 13.5h4.5"/></svg></span>
           <span><span class="t">احجز تصويرك</span><br><span class="s">واتساب مباشر مع نبيل</span></span>
@@ -296,6 +319,7 @@ h3.sub{font-size:19px;font-weight:800;margin:30px 0 14px}
     <a href="#about">نبذة عني</a>
     <a href="#work">أعمالي</a>
     <a href="#services">اختصاصاتي</a>
+    <a href="#tune">اضبط درونك</a>
     <a href="#book">احجز</a>
     <a href="#start">ابدأ FPV</a>
   </nav>
@@ -381,7 +405,7 @@ h3.sub{font-size:19px;font-weight:800;margin:30px 0 14px}
         <div class="ch"><b>R2</b><span>5695 MHz</span></div>
         <h3>برمجة وضبط</h3>
         <p>Betaflight من الصفر: فلاتر، PID، OSD، ربط الريموت والفيديو، وأوضاع الطيران حسب أسلوبك.</p>
-        <a class="go wa" data-msg="أبغى برمجة وضبط درون" href="https://wa.me/96893222413" target="_blank" rel="noopener">اطلب برمجة ←</a>
+        <a class="go" href="#tune">افحص درونك وشوف الأسعار ←</a>
       </article>
       <article class="card">
         <div class="ch"><b>R3</b><span>5732 MHz</span></div>
@@ -401,6 +425,55 @@ h3.sub{font-size:19px;font-weight:800;margin:30px 0 14px}
         <p>درونات جاهزة مبنية ومضبوطة، وقطع غيار مختارة على تجربة طيران حقيقية.</p>
         <a class="go wa" data-msg="أبغى أسأل عن قطع أو درون جاهز" href="https://wa.me/96893222413" target="_blank" rel="noopener">اسأل عن القطع ←</a>
       </article>
+    </div>
+  </section>
+
+  <!-- TUNE: 30-second check + prices -->
+  <section id="tune" aria-labelledby="tuneTitle">
+    <div class="head"><div>
+      <span class="eyebrow">TUNE CHECK</span>
+      <h2 id="tuneTitle">اضبط درونك</h2>
+      <p>اختار اللي تحسه في درونك، ويطلع لك الضبط المناسب وسعره. والحجز على الواتساب برسالة جاهزة.</p>
+    </div></div>
+    <div class="tune-grid">
+      <div class="panel">
+        <form id="tuneQ" onsubmit="return false">
+          <fieldset class="q"><legend>وش تلاحظ في درونك؟ (اختار كل اللي ينطبق)</legend><div class="chips">
+            <label class="chip"><input type="checkbox" name="sign" value="vib"><span>اهتزاز أو رجفة في الصورة</span></label>
+            <label class="chip"><input type="checkbox" name="sign" value="bounce"><span>يرتد بعد الفليب</span></label>
+            <label class="chip"><input type="checkbox" name="sign" value="prop"><span>يترجرج وقت النزول</span></label>
+            <label class="chip"><input type="checkbox" name="sign" value="hot"><span>المحركات حارة بعد الطيران</span></label>
+            <label class="chip"><input type="checkbox" name="sign" value="drift"><span>يميل أو يسحب لحاله</span></label>
+            <label class="chip"><input type="checkbox" name="sign" value="new"><span>درون جديد يبغاله برمجة</span></label>
+          </div></fieldset>
+          <fieldset class="q"><legend>نوع الدرون؟</legend><div class="chips">
+            <label class="chip"><input type="radio" name="size" value="small" checked><span>٥ إنش وأقل</span></label>
+            <label class="chip"><input type="radio" name="size" value="big"><span>سينماتيك أو سينيلفتر، ٧ إنش وفوق</span></label>
+          </div></fieldset>
+        </form>
+        <div class="result" aria-live="polite">
+          <h3 id="tuneT"></h3>
+          <span class="amt" id="tuneP"></span>
+          <p class="d" id="tuneD"></p>
+          <a class="btn" id="tuneBtn" href="https://wa.me/96893222413" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"/></svg>
+            احجز ضبط درونك
+          </a>
+          <div class="offer"><i></i>عرض الإطلاق: خصم ٢٠٪ لأول ٥ حجوزات</div>
+        </div>
+      </div>
+      <div class="panel">
+        <span class="eyebrow">PRICES</span>
+        <h2 style="font-size:clamp(24px,5vw,30px);font-weight:800">الأسعار</h2>
+        <p class="note" style="margin:6px 0 12px">بالريال العُماني، والقطع على العميل.</p>
+        <div class="price">
+          <div class="pcard" data-pk="check"><h3>فحص وتشخيص</h3><span class="amt">5 ر.ع</span><p>أشوف الدرون وأحدد المشكلة، والمبلغ ينخصم لو كمّلت الضبط.</p></div>
+          <div class="pcard" data-pk="basic"><h3>ضبط أساسي</h3><span class="amt">15 ر.ع</span><p>تحديث Betaflight، تفعيل فلتر RPM، ضبط بالسلايدرز، ورحلة اختبار.</p></div>
+          <div class="pcard" data-pk="pro"><h3>ضبط احترافي</h3><span class="amt">25–30 ر.ع</span><p>تسجيل Blackbox وتحليل الضجيج، فلاتر وPID مخصصة، ٢–٣ رحلات اختبار، ونسخة احتياطية لإعداداتك.</p></div>
+          <div class="pcard" data-pk="big"><h3>درونات كبيرة</h3><span class="amt">35–45 ر.ع</span><p>ضبط الدرونات السينمائية والسينيلفتر، ٧ إنش وفوق.</p></div>
+        </div>
+        <p class="note">إضافات: إعداد GPS Rescue أو ELRS بـ 5 ر.ع. التصليح واللحام من 5 ر.ع، والقطع على العميل.</p>
+      </div>
     </div>
   </section>
 
@@ -553,6 +626,27 @@ h3.sub{font-size:19px;font-weight:800;margin:30px 0 14px}
     document.getElementById('resBtn').href=WA+encodeURIComponent(msg);
   }
   quiz.addEventListener('change',renderQuiz); renderQuiz();
+
+  /* tune check */
+  var tq=document.getElementById('tuneQ');
+  var PK={check:{t:'ابدأ بفحص وتشخيص',p:'5 ر.ع',d:'ما اخترت علامة واضحة. أشوف الدرون وأحدد المشكلة، والمبلغ ينخصم لو كمّلت الضبط.'},
+          basic:{t:'يكفيك الضبط الأساسي',p:'15 ر.ع',d:'تحديث Betaflight، تفعيل فلتر RPM، ضبط بالسلايدرز على أسلوبك، ورحلة اختبار.'},
+          pro:{t:'درونك يحتاج ضبط احترافي',p:'25–30 ر.ع',d:'أكثر من علامة أو محركات حارة: أسجّل Blackbox وأحلل الضجيج، وأضبط الفلاتر وPID على درونك بالضبط.'},
+          big:{t:'ضبط درون كبير',p:'35–45 ر.ع',d:'الدرونات السينمائية والسينيلفتر تحتاج ضبط أدق عشان اللقطة تطلع ناعمة مع الوزن.'}};
+  var SL={vib:'اهتزاز في الصورة',bounce:'يرتد بعد الفليب',prop:'يترجرج وقت النزول',hot:'المحركات حارة',drift:'يميل أو يسحب',new:'درون جديد يبغاله برمجة'};
+  function renderTune(){
+    var signs=[].slice.call(tq.querySelectorAll('input[name=sign]:checked')).map(function(i){return i.value});
+    var big=tq.querySelector('input[name=size]:checked').value==='big';
+    var k=big?'big':signs.length===0?'check':(signs.length===1&&signs[0]==='new')?'basic':(signs.length>=2||signs.indexOf('hot')>-1)?'pro':'basic';
+    $('tuneT').textContent=PK[k].t; $('tuneP').textContent=PK[k].p; $('tuneD').textContent=PK[k].d;
+    document.querySelectorAll('.pcard').forEach(function(c){c.classList.toggle('on',c.dataset.pk===k)});
+    var msg='السلام عليكم نبيل، سويت فحص «اضبط درونك» في موقعك:\n'+
+      'العلامات: '+(signs.length?signs.map(function(v){return SL[v]}).join('، '):'ما في علامة واضحة')+'\n'+
+      'نوع الدرون: '+(big?'سينماتيك أو سينيلفتر':'٥ إنش وأقل')+'\n'+
+      'الباقة: '+PK[k].t+' ('+PK[k].p+')\nأبغى أحجز، وأبغى عرض الإطلاق لو متوفر.';
+    $('tuneBtn').href=WA+encodeURIComponent(msg);
+  }
+  tq.addEventListener('change',renderTune); renderTune();
 
   /* booking builder */
   var bf=document.getElementById('bookForm'),place=$('bPlace'),date=$('bDate'),notes=$('bNotes');
